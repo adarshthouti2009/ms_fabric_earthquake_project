@@ -1,47 +1,94 @@
-# ms_fabric_earthquake_project
+# Microsoft Fabric Earthquake Data Engineering Project
 
-Project Overview
-Learn to build an end to end data engineering and analysis pipelineutilising Microsoft Fabric’s Data Factory, Data Engineering, and Power BI experiences.
+## Project Overview
+This project is designed to guide you through building a complete data engineering and analytics pipeline using Microsoft Fabric’s capabilities. You will learn how to efficiently ingest, process, transform, and visualize earthquake data sourced from the United States Geological Survey (USGS) API.
 
-Ingesting Earthquake events data from usgs.
+By leveraging Microsoft Fabric’s Data Factory, Data Engineering, and Power BI, you will create a structured Bronze-Silver-Gold data processing pipeline. This ensures raw data is transformed into high-quality datasets suitable for analysis, reporting, and business intelligence.
 
-Technologies Used: Python, PySpark, Fabric (Data Engineering, Data Factory, Power BI)
+## Key Learning Objectives
 
-Getting Started
-To get started with this project, downalod the notebooks in the repository and follow the guidance provided in the YouTube tutorial.
+  * Understand data lake architecture and how to manage structured and unstructured data efficiently.
+  * Utilize Microsoft Fabric’s Data Factory to automate data ingestion from external sources.
+  * Implement PySpark and Python in Fabric Data Engineering for large-scale data processing and transformation.
+  * Develop incremental data processing strategies to optimize data refresh and avoid redundant computations.
+  * Create interactive Power BI dashboards to visualize and analyze earthquake trends globally.
 
-Repository Contents
-Worldwide Earthquake Events API - Bronze Layer Processing: This notebook focuses on ingesting raw earthquake data from the USGS API. It performs minimal processing to store data in its original format, serving as the foundational layer for further refinement.
+## Technologies & Tools Used
 
-Worldwide Earthquake Events API - Silver Layer Processing: This notebook enhances the data from the Bronze layer by cleaning, transforming, and consolidating the earthquake data. It prepares the data for more analytical processing.
+  * Python & PySpark – Data processing, transformation, and analysis.
+  * Microsoft Fabric Data Factory – Automating ingestion from the USGS API.
+  * Microsoft Fabric Data Engineering (Spark Notebooks) – Processing raw data and transforming it into structured datasets.
+  * Microsoft Fabric OneLake (Delta Tables) – Storing structured data for efficient querying.
+  * Power BI – Creating analytical dashboards for insights and reporting.
 
-Worldwide Earthquake Events API - Gold Layer Processing: In this final processing stage, the notebook refines the data to create business-ready datasets. These are optimized for high-value insights and are tailored for specific analytical purposes, such as reporting and visualization in tools like Power BI.
+## Project Implementation Details 
 
-Data Attribute Definitions
-id: A string identifier for each data record.
+### Step 1: Data Ingestion (Bronze Layer Processing)
 
-latitude: The latitude of the event, stored as a double.
+  * Fetch earthquake event data from the USGS API in near real-time.
+  * Store the raw data in the Fabric Data Lakehouse in its original format (JSON/Parquet).
+  * Maintain historical records for future reference and replaying transformations.
 
-longitude: The longitude of the event, also stored as a double.
+### Step 2: Data Cleansing & Transformation (Silver Layer Processing)
 
-elevation: The elevation at which the event occurred, expressed in meters, stored as a double.
+  * Convert raw JSON data into structured Delta tables for improved querying.
+  * Clean, normalize, and standardize key attributes (e.g., timestamps, magnitude types, and location descriptions).
+  * Handle missing values and filter out redundant records.
+  * Enhance data with calculated fields (e.g., magnitude category classification).
 
-title: A string representing the title or name of the event.
+### Step 3: Business-Ready Data (Gold Layer Processing) 
 
-place_description: A string describing the location of the event.
+  * Aggregate and refine earthquake event data into meaningful insights.
+  * Optimize for query performance and Power BI reporting.
+  * Create summary tables for trends, regional analysis, and risk assessments.
+  * Implement incremental data updates to improve processing efficiency.
 
-sig: A bigint (large integer) representing the significance score of the event.
+## Data Schema & Attribute Definitions
 
-mag: A double indicating the magnitude of the earthquake.
+| Column Name       | Data Type | Description                                              |
+| ----------------- | --------- | -------------------------------------------------------- |
+| id                | String    | Unique identifier for each earthquake event.             |
+| latitude          | Double    | Latitude coordinate of the earthquake event.             |
+| longitude         | Double    | Longitude coordinate of the earthquake event.            |
+| elevation         | Double    | Elevation at which the event occurred (in meters).       |
+| title	String      | String    | Title or descriptive name of the earthquake event.       |
+| place_description | String    | Detailed description of the earthquake’s location.       |
+| sig               | BigInt    | Significance score of the event (based on USGS scoring). |
+| mag               | Double    | Magnitude of the earthquake (Richter scale).             |
+| magType           | String    | Type of magnitude scale used (e.g., Mw, ML, Ms).         |
+| time              | Timestamp | Exact time when the earthquake occurred.                 |
+| updated           | Timestamp | Last update time for the event data.                     |
 
-magType: A string describing the type of magnitude scale used.
+## Project Outcomes & Insights
+  By the end of this project, you will have:
+    * A structured data pipeline that ingests, processes, and refines earthquake data in near real-time.
+    * A well-organized Fabric Data Lakehouse with efficient data storage and retrieval.
+    * A fully functional Power BI dashboard showcasing:
+      * Earthquake frequency trends over time.
+      * Geographic distribution of earthquake occurrences.
+      * Insights into high-risk regions based on historical data.
+      * Interactive filtering and drill-down analysis for better decision-making.
 
-time: A timestamp marking the exact time of the event.
+## Prerequisites
 
-updated: A timestamp indicating the last update time for the event data.
+Before starting this project, ensure you have the following:
+  * Microsoft Fabric Account (with necessary permissions).
+  * Fabric Administrator access or approval from an admin.
+  * Basic understanding of Python, Spark, and data engineering concepts.
+  * Familiarity with Power BI for creating reports and visualizations.
+		
+## Conclusion
 
-Prerequisites
-Microsoft Fabric Account.
-Fabric Administrator (or access to individual with Admin account).
-Familiarity with Python, Spark, and basic data engineering concepts.
-Basic Power BI skills.
+This project is ideal for data engineers, analysts, and Power BI developers looking to build an end-to-end data pipeline in Microsoft Fabric while gaining hands-on experience with big data processing, data lakes, and real-time analytics.
+
+		
+		
+	  
+		
+		
+		
+		
+		
+		
+
+
