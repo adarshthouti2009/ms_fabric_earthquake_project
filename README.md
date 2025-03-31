@@ -5,6 +5,10 @@ This project is designed to guide you through building a complete data engineeri
 
 By leveraging Microsoft Fabric’s Data Factory, Data Engineering, and Power BI, you will create a structured Bronze-Silver-Gold data processing pipeline. This ensures raw data is transformed into high-quality datasets suitable for analysis, reporting, and business intelligence.
 
+## Architecture Overview 
+
+![Project Architecture](Earthquake_Fabric.jpg)
+
 ## Key Learning Objectives
 
   * Understand data lake architecture and how to manage structured and unstructured data efficiently.
